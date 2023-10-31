@@ -13,7 +13,7 @@ class ComicsSeeder extends Seeder
      */
     public function run(): void
     {
-        $comics = include('config/comics.php');
+        $comics = config('comics');
 
         foreach ($comics as $comic) {
             $newComic = new Comics();
@@ -23,8 +23,8 @@ class ComicsSeeder extends Seeder
             $newComic->price = $comic['price'];
             $newComic->series = $comic['series'];
             $newComic->sale_date = $comic['sale_date'];
-            // $newComic->artists = $comic['artists'];
-            // $newComic->writers = $comic['writers'];
+            $newComic->artists = implode(', ', $comic['artists']);
+            $newComic->writers = implode($comic['writers']);
             $newComic->type = $comic['type'];
             $newComic->save();
         }

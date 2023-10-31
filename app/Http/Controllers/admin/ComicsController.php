@@ -14,7 +14,7 @@ class ComicsController extends Controller
     public function index()
     {
 
-        return view('home', ['comics' => comics::all()]);
+        return view('admin/admin', ['comics' => comics::all()]);
     }
 
     /**
