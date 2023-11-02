@@ -9,7 +9,7 @@ class comics extends Model
 {
     use HasFactory;
 
-    /*     protected $casts = [
+    /* protected $casts = [
         'artists' => 'array',
         'writers' => 'array',
     ]; */

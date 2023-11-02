@@ -5,7 +5,6 @@
 @section('main-content')
     <div class="container py-3">
         <h1 class="text-center">Comic List</h1>
-
         <div class="table-responsive-sm">
             <table class="table table-light">
                 <thead class="table-dark">
@@ -23,10 +22,10 @@
                             <td>{{ $comic->title }}</td>
                             <td><img height="75px" src="{{ $comic->thumb }}" alt=""></td>
                             <td>
-                                <a class="btn btn-primary" href="#">More</a>
+                                <a class="btn btn-primary" href="{{ route('comics.show', $comic->id) }}">More</a>
                                 <a class="btn btn-secondary " href="#">Edit</a>
                                 <a class="btn btn-danger" href="#">Delete</a>
-                                <a class="btn  btn-light" href="#">+</a>
+                                <a class="btn  btn-light" href="{{ route('comics.create') }}">+</a>
                             </td>
                         </tr>
                     @empty

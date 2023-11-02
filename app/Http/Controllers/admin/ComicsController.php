@@ -13,8 +13,8 @@ class ComicsController extends Controller
      */
     public function index()
     {
-
-        return view('admin/admin', ['comics' => comics::all()]);
+        $comics = comics::all();
+        return view('admin.admin', compact('comics'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -36,10 +36,11 @@ class ComicsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(comics $comics)
+    public function show(comics $comic)
     {
-        //
+        return view('admin.show', compact('comic'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
