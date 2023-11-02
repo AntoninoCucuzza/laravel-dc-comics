@@ -20,10 +20,19 @@
                         <tr class="text-center table-dark">
                             <td>{{ $comic->id }}</td>
                             <td>{{ $comic->title }}</td>
-                            <td><img height="75px" src="{{ $comic->thumb }}" alt=""></td>
+
+                            @if (str_contains($comic->thumb, 'http'))
+                                <td>
+                                    <img height="75px" src="{{ $comic->thumb }}">
+                                </td>
+                            @else
+                                <td>
+                                    <img height="75px" src="{{ asset('storage/' . $comic->thumb) }}">
+                                </td>
+                            @endif
                             <td>
                                 <a class="btn btn-primary" href="{{ route('comics.show', $comic->id) }}">More</a>
-                                <a class="btn btn-secondary " href="#">Edit</a>
+                                <a class="btn btn-secondary " href="{{ route('comics.edit', $comic->id) }}">Edit</a>
                                 <a class="btn btn-danger" href="#">Delete</a>
                                 <a class="btn  btn-light" href="{{ route('comics.create') }}">+</a>
                             </td>
