@@ -30,7 +30,11 @@
 
             </div>
             <div class="col-4">
-                <img class="img-fluid h-100 object-fit-cover" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
+                @if (str_contains($comic->thumb, 'http'))
+                    <img class="img-fluid h-100 object-fit-cover" src="{{ $comic->thumb }}">
+                @else
+                    <img class="img-fluid h-100 object-fit-cover" src="{{ asset('storage/' . $comic->thumb) }}">
+                @endif
             </div>
         </div>
     @endsection
