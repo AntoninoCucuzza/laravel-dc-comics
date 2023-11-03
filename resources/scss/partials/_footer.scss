@@ -1,0 +1,68 @@
+@use './variables' as *;
+
+footer {
+    color: $dc_white;
+    background-image: url(../img/footer-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .top {
+
+        h3 {
+            text-transform: uppercase;
+        }
+
+        a {
+            color: $dc_dark_gray;
+            text-decoration: none;
+        }
+
+        .help {
+            padding: 2rem 0;
+        }
+
+        .bg_logo {
+            background-image: url('../img/dc-logo-bg.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    .bot {
+        padding: 2.5rem;
+        background-color: $dc_dark_black;
+
+        .left {
+            #sign-in {
+                color: $dc_white;
+                text-transform: uppercase;
+                border: 3px solid $dc_primary;
+                border-radius: 0;
+                padding: 0.7rem 0.8rem;
+                font-weight: bold;
+                transition: all 0.3s;
+
+                &:hover {
+                    background-color: $dc_primary;
+                    color: $dc_main_dark ;
+                }
+            }
+        }
+
+        .right {
+            #Follow-us {
+                color: $dc_primary;
+            }
+
+            .socials {
+                border-radius: 50%;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: $dc_primary;
+                    box-shadow: 0px 0px 15px 2px;
+                }
+            }
+        }
+    }
+}

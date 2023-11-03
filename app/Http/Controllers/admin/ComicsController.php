@@ -95,8 +95,14 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(comics $comics)
+    public function destroy(comics $comic)
     {
-        //
+        if (!is_null($comic->thumb)) {
+            Storage::delete($comic->thumb);
+        }
+
+        $comic->delete();
+
+        return to_route('comics.index')->with('message', 'hai statoo bravoh ;-)');
     }
 }

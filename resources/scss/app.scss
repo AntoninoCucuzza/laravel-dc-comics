@@ -1,7 +1,29 @@
+@use './partials/variables' as *;
+
+@use './partials/footer' as *;
+
 @import '~bootstrap/scss/bootstrap';
+
+a {
+    text-decoration: none;
+}
 
 body {
     min-height: 100vh;
     background-color: #222;
     color: white;
+}
+
+td {
+    max-width: 550px;
+}
+
+.siteTM {
+
+    font-size: 14px;
+    color: $dc_dark_gray;
+
+    .TM {
+        color: $dc_primary;
+    }
 }
