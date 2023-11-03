@@ -81,19 +81,19 @@
                             <h4 class="text-uppercase m-0">follow us</h4>
                         </a>
                         <a href="" class="ms-4" target="blank">
-                            <img src="{{ Vite::asset('resources/img/footer-facebook.png') }}">
+                            <img class="socials" src="{{ Vite::asset('resources/img/footer-facebook.png') }}">
                         </a>
                         <a href="" class="ms-4" target="blank">
-                            <img src="{{ Vite::asset('resources/img/footer-youtube.png') }}">
+                            <img class="socials" src="{{ Vite::asset('resources/img/footer-youtube.png') }}">
                         </a>
                         <a href="" class="ms-4" target="blank">
-                            <img src="{{ Vite::asset('resources/img/footer-twitter.png') }}">
+                            <img class="socials" src="{{ Vite::asset('resources/img/footer-twitter.png') }}">
                         </a>
                         <a href="" class="ms-4" target="blank">
-                            <img src="{{ Vite::asset('resources/img/footer-periscope.png') }}">
+                            <img class="socials" src="{{ Vite::asset('resources/img/footer-periscope.png') }}">
                         </a>
                         <a href="" class="ms-4" target="blank">
-                            <img src="{{ Vite::asset('resources/img/footer-pinterest.png') }}">
+                            <img class="socials" src="{{ Vite::asset('resources/img/footer-pinterest.png') }}">
                         </a>
                     </div>
                 </div>
