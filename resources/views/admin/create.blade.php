@@ -4,7 +4,7 @@
 
 @section('main-content')
 
-
+    {{-- 
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -14,7 +14,7 @@
             </ul>
         </div>
     @endif
-
+ --}}
 
     <div class="container py-3">
         <h1 class="text-center">Add Comic</h1>
@@ -65,7 +65,7 @@
                 <div class="row g-3  ">
                     <div class="col-4">
                         <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="price"
+                        <input type="text" class="form-control @error('price') is-invalid @enderror" name="price"
                             id="price" aria-describedby="helpid" placeholder="Insert a comic price">
 
                         @if ($errors->get('price'))
@@ -98,8 +98,8 @@
 
             <div class="mb-5">
                 <label for="thumb" class="form-label">Choose file</label>
-                <input type="file" class="form-control" name="thumb" id="thumb" placeholder="Choose file"
-                    aria-describedby="helpid">
+                <input type="file" class="form-control @error('thumb') is-invalid @enderror" name="thumb"
+                    id="thumb" placeholder="Choose file" aria-describedby="helpid">
 
                 @if ($errors->get('thumb'))
                     <div class="alert alert-danger">

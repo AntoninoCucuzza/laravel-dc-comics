@@ -23,8 +23,10 @@
                 <div class="row g-3 ">
                     <div class="col-6">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" aria-describedby="helpid"
-                            placeholder="type comic name" value="{{ $comic->title }}" required maxlength="255">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                            id="title" aria-describedby="helpid" placeholder="type comic name"
+                            value="{{ $comic->title }}" required maxlength="255">
+
                         @if ($errors->get('title'))
                             <div class="alert alert-danger">
                                 <label for="Price" class="form-label">
@@ -34,6 +36,7 @@
                                 </label>
                             </div>
                         @endif
+
                     </div>
 
                     <div class="col-6">
@@ -49,8 +52,9 @@
                 <div class="row g-3  ">
                     <div class="col-4">
                         <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control" name="price" id="price" aria-describedby="helpid"
-                            placeholder="typer price" value="{{ $comic->price }}">
+                        <input type="text" class="form-control @error('price') is-invalid @enderror" name="price"
+                            id="price" aria-describedby="helpid" placeholder="typer price" value="{{ $comic->price }}">
+
                         @if ($errors->get('price'))
                             <div class="alert alert-danger">
                                 <label for="Price" class="form-label">
@@ -60,6 +64,7 @@
                                 </label>
                             </div>
                         @endif
+
                     </div>
                     <div class="col-4">
                         <label for="type" class="form-label">type</label>
@@ -87,8 +92,8 @@
                     <div class="mb-5">
 
                         <label for="thumb" class="form-label">Choose file</label>
-                        <input type="file" class="form-control" name="thumb" id="thumb" placeholder="Choose file"
-                            aria-describedby="helpid">
+                        <input type="file" class="form-control @error('thumb') is-invalid @enderror" name="thumb"
+                            id="thumb" placeholder="Choose file" aria-describedby="helpid">
 
                         @if ($errors->get('thumb'))
                             <div class="alert alert-danger">
@@ -101,6 +106,7 @@
                                 </label>
                             </div>
                         @endif
+
                         <div class="mt-5">
                             <button type="submit" class="btn btn-warning">update</button>
                             <button type="reset" class="btn btn-danger">Reset</button>

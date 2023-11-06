@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Requests\AuthComicsRequest;
 use App\Http\Controllers\Controller;
 use App\Models\comics;
 use Illuminate\Http\Request;
@@ -15,10 +16,11 @@ class ComicsController extends Controller
     public function index()
     {
 
+        $deletedComics = comics::onlyTrashed()->get();
 
         $comics = comics::paginate(10);
 
-        return view('admin.admin', compact('comics'));
+        return view('admin.admin', compact('comics', 'deletedComics'));
     }
 
     /**
@@ -32,13 +34,9 @@ class ComicsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AuthComicsRequest $request)
     {
-        $val_data = $request->validate([
-            'title' => 'required|unique:comics|max:255|min:3',
-            'price' => 'required|min:1',
-            'thumb' => 'max:2048',
-        ]);
+        $val_data = $request->validated();
 
         $data = $request->all();
 
@@ -84,13 +82,9 @@ class ComicsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, comics $comic)
+    public function update(AuthComicsRequest $request, comics $comic)
     {
-        $val_data = $request->validate([
-            'title' => 'required|unique:comics|max:255|min:3',
-            'price' => 'required|min:1',
-            'thumb' => 'max:2048',
-        ]);
+        $val_data = $request->validated();
 
         $data = $request->all();
 

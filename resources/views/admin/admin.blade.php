@@ -107,6 +107,44 @@
         </div>
 
 
+        <h1 class="text-center">soft-deleted comics</h1>
+        <table class="table table-light table-hover">
+            <thead class="table-dark">
+                <tr class="text-center">
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Thumb</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @forelse ($deletedComics as $deletedcomic)
+                    <tr class="text-center table-dark">
+                        <td>{{ $deletedcomic->id }}</td>
+                        <td>{{ $deletedcomic->title }}</td>
+                        @if (str_contains($comic->thumb, 'http'))
+                            <td>
+                                <img height="75px" src="{{ $deletedcomic->thumb }}">
+                            </td>
+                        @else
+                            <td>
+                                <img height="75px" src="{{ asset('storage/' . $deletedcomic->thumb) }}">
+                            </td>
+                        @endif
+                        <td>bottoni </td>
+                    </tr>
+                @empty
+                    <tr class="text-center table-dark">
+                        <td colspan="4">no comics has been deleted</td>
+                    </tr>
+                @endforelse
+
+            </tbody>
+        </table>
+
+
+
     </div>
 @endsection
 
