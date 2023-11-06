@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('artists')->nullable();
             $table->string('writers')->nullable();
             $table->string('type')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

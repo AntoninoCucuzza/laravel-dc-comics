@@ -5,7 +5,7 @@
 @section('main-content')
 
 
-    {{--    @if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -13,7 +13,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif --}}
+    @endif
 
 
     <div class="container py-3">
@@ -29,7 +29,7 @@
                             id="title" aria-describedby="helpid" placeholder="Insert a comic title" required
                             maxlength="255">
 
-                        @if ($errors->any())
+                        @if ($errors->get('title'))
                             <div class="alert alert-danger">
                                 <label for="Price" class="form-label">
                                     @foreach ($errors->get('title') as $error)
@@ -68,7 +68,7 @@
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="price"
                             id="price" aria-describedby="helpid" placeholder="Insert a comic price">
 
-                        @if ($errors->any())
+                        @if ($errors->get('price'))
                             <div class="alert alert-danger">
                                 <label for="Price" class="form-label">
                                     @foreach ($errors->get('price') as $error)
@@ -101,7 +101,7 @@
                 <input type="file" class="form-control" name="thumb" id="thumb" placeholder="Choose file"
                     aria-describedby="helpid">
 
-                @if ($errors->any())
+                @if ($errors->get('thumb'))
                     <div class="alert alert-danger">
                         <label for="Price" class="form-label">
                             @foreach ($errors->get('thumb') as $error)

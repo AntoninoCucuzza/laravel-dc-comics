@@ -77,6 +77,7 @@ class ComicsController extends Controller
      */
     public function edit(comics $comic)
     {
+
         return view('admin.edit', compact('comic'));
     }
 
@@ -85,6 +86,12 @@ class ComicsController extends Controller
      */
     public function update(Request $request, comics $comic)
     {
+        $val_data = $request->validate([
+            'title' => 'required|unique:comics|max:255|min:3',
+            'price' => 'required|min:1',
+            'thumb' => 'max:2048',
+        ]);
+
         $data = $request->all();
 
         if ($request->has('thumb') && $comic->thumb) {
@@ -106,6 +113,7 @@ class ComicsController extends Controller
      */
     public function destroy(comics $comic)
     {
+
         if (!is_null($comic->thumb)) {
             Storage::delete($comic->thumb);
         }
